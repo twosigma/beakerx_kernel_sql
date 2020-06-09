@@ -1,4 +1,4 @@
-recursive-include beakerx/kernel *
+recursive-include beakerx_sql/kernel *
 
 include setupbase.py
 

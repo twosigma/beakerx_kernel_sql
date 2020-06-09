@@ -15,5 +15,5 @@ __pycache__/
 
 *.egg-info/
 
-sql-dist/beakerx/kernel/*
+sql-dist/beakerx_sql/kernel/*
 sql-dist/dist

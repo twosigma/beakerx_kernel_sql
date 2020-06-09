@@ -34,10 +34,10 @@ cmdclass = create_cmdclass(develop_wrappers=[
 cmdclass['java'] = run_gradle(cmd='install', skip_tests=False)
 
 setup_args = dict(
-    name='beakerx-kernel-sql',
+    name='beakerx_kernel_sql',
     description='BeakerX: Beaker Extensions for Jupyter Notebook',
     long_description='BeakerX: Beaker Extensions for Jupyter Notebook',
-    version=get_version(os.path.join('beakerx', '_version.py')),
+    version=get_version(os.path.join('beakerx_sql', '_version.py')),
     author='Two Sigma Open Source, LLC',
     author_email='beakerx-feedback@twosigma.com',
     url='http://beakerx.com',
@@ -66,11 +66,11 @@ setup_args = dict(
     ],
     entry_points={
         'console_scripts': [
-            'beakerx-kernel-sql = beakerx:run'
+            'beakerx_kernel_sql = beakerx_sql:run'
         ]
     },
     package_data={
-        'beakerx': [
+        'beakerx_sql': [
             'kernel/*/kernel.json'
         ]
     },

@@ -1,4 +1,4 @@
-name: beakerx-kernel-sql
+name: beakerx_kernel_sql
 channels:
   - conda-forge
 dependencies:
