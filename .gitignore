@@ -1,0 +1,19 @@
+# IntelliJ
+.idea/
+.iml
+
+# Gradle
+.gradle/
+/build/
+*/build/
+*/out/
+
+
+# Python
+*.py[cod]
+__pycache__/
+
+*.egg-info/
+
+sql-dist/beakerx_sql/kernel/*
+sql-dist/dist

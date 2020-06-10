@@ -1,0 +1,31 @@
+{% set name = "beakerx_kernel_sql" %}
+{% set version = "1.6.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  git_url: https://github.com/twosigma/beakerx_kernel_sql.git
+  git_tag: master
+
+source:
+  url: https://files.pythonhosted.org/packages/source/b/beakerx/{{ name }}-{{ version }}.tar.gz
+  #url: file:///YOUR_LOCAL_PATH/beakerx_kernel_sql/sql-dist/dist/{{ name }}-{{ version }}.tar.gz
+
+build:
+  number: 1
+  script: pip install --no-deps .
+  entry_points:
+  - beakerx_kernel_sql = beakerx_sql:run
+
+requirements:
+  build:
+  - python
+  - pip
+  run:
+  - python >=3
+  - notebook >=5.7.4
+  - ipywidgets >=7.0
+  - widgetsnbextension
+  - openjdk=11.0.1
