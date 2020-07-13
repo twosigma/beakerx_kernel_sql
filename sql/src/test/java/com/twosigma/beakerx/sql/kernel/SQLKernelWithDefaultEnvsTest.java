@@ -19,6 +19,7 @@ import com.twosigma.beakerx.BeakerXCommRepositoryMock;
 import com.twosigma.beakerx.BeakerXServerMock;
 import com.twosigma.beakerx.KernelTest;
 import com.twosigma.beakerx.RuntimetoolsMock;
+import com.twosigma.beakerx.evaluator.BxInspectMock;
 import com.twosigma.beakerx.evaluator.ClasspathScannerMock;
 import com.twosigma.beakerx.evaluator.EvaluatorTest;
 import com.twosigma.beakerx.kernel.CloseKernelAction;
@@ -57,7 +58,8 @@ public class SQLKernelWithDefaultEnvsTest extends SQLKernelTest {
             kernelParameters,
             new EvaluatorTest.BeakexClientTestImpl(),
             magicCommandConfiguration.patterns(),
-            new ClasspathScannerMock());
+            new ClasspathScannerMock(),
+            new BxInspectMock());
     Kernel sqlKernel = new SQL(sessionId,
             sqlEvaluator,
             new Configuration(

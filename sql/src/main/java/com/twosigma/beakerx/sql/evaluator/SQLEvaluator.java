@@ -26,6 +26,7 @@ import com.twosigma.beakerx.evaluator.ClasspathScanner;
 import com.twosigma.beakerx.evaluator.JobDescriptor;
 import com.twosigma.beakerx.evaluator.TempFolderFactory;
 import com.twosigma.beakerx.evaluator.TempFolderFactoryImpl;
+import com.twosigma.beakerx.inspect.Inspect;
 import com.twosigma.beakerx.jvm.classloader.DynamicClassLoaderSimple;
 import com.twosigma.beakerx.jvm.object.EvaluationObject;
 import com.twosigma.beakerx.jvm.threads.BeakerCellExecutor;
@@ -76,7 +77,8 @@ public class SQLEvaluator extends BaseEvaluator {
                       EvaluatorParameters evaluatorParameters,
                       BeakerXClient beakerxClient,
                       MagicCommandAutocompletePatterns autocompletePatterns,
-                      ClasspathScanner classpathScanner) {
+                      ClasspathScanner classpathScanner,
+                      Inspect inspect) {
     this(id,
             sId,
             new BeakerCellExecutor("sql"),
@@ -84,7 +86,8 @@ public class SQLEvaluator extends BaseEvaluator {
             evaluatorParameters,
             beakerxClient,
             autocompletePatterns,
-            classpathScanner);
+            classpathScanner,
+            inspect);
   }
 
   public SQLEvaluator(String id,
@@ -94,8 +97,17 @@ public class SQLEvaluator extends BaseEvaluator {
                       EvaluatorParameters evaluatorParameters,
                       BeakerXClient beakerxClient,
                       MagicCommandAutocompletePatterns autocompletePatterns,
-                      ClasspathScanner classpathScanner) {
-    super(id, sId, cellExecutor, tempFolderFactory, evaluatorParameters, beakerxClient, autocompletePatterns, classpathScanner);
+                      ClasspathScanner classpathScanner,
+                      Inspect inspect) {
+    super(id,
+            sId,
+            cellExecutor,
+            tempFolderFactory,
+            evaluatorParameters,
+            beakerxClient,
+            autocompletePatterns,
+            classpathScanner,
+            inspect);
     cps = new AutocompleteClasspathScanner();
     sac = createSqlAutocomplete(cps);
     loader = reloadClassLoader();
