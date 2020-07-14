@@ -19,6 +19,7 @@ import com.twosigma.beakerx.BeakerXCommRepository;
 import com.twosigma.beakerx.CommRepository;
 import com.twosigma.beakerx.DefaultJVMVariables;
 import com.twosigma.beakerx.NamespaceClient;
+import com.twosigma.beakerx.evaluator.BxInspect;
 import com.twosigma.beakerx.evaluator.ClasspathScannerImpl;
 import com.twosigma.beakerx.evaluator.Evaluator;
 import com.twosigma.beakerx.handler.KernelHandler;
@@ -92,7 +93,14 @@ public class SQL extends Kernel {
       NamespaceClient beakerxClient = NamespaceClient.create(id, configurationFile, commRepository);
       DataSourceParamResolverImpl paramResolver = new DataSourceParamResolverImpl(beakerxClient);
       MagicCommandConfiguration magicConfiguration = new MagicCommandConfigurationImpl(new FileServiceImpl(), new MavenJarResolverServiceImpl(), new MagicCommandAutocompletePatternsImpl());
-      SQLEvaluator evaluator = new SQLEvaluator(id, id, params, beakerxClient, magicConfiguration.patterns(), new ClasspathScannerImpl());
+      SQLEvaluator evaluator = new SQLEvaluator(
+              id,
+              id,
+              params,
+              beakerxClient,
+              magicConfiguration.patterns(),
+              new ClasspathScannerImpl(),
+              new BxInspect(BxInspect.getInspectFile()));
       return new SQL(id,
               evaluator,
               new Configuration(

@@ -18,6 +18,7 @@ package com.twosigma.beakerx.sql;
 import com.twosigma.beakerx.KernelTest;
 import com.twosigma.beakerx.MessageFactorTest;
 import com.twosigma.beakerx.TryResult;
+import com.twosigma.beakerx.evaluator.BxInspectMock;
 import com.twosigma.beakerx.evaluator.ClasspathScannerMock;
 import com.twosigma.beakerx.evaluator.EvaluatorTest;
 import com.twosigma.beakerx.evaluator.MagicCommandAutocompletePatternsMock;
@@ -57,7 +58,8 @@ public class SQLEvaluatorTest {
             kernelParameters(),
             new EvaluatorTest.BeakexClientTestImpl(),
             new MagicCommandAutocompletePatternsMock(),
-            new ClasspathScannerMock());
+            new ClasspathScannerMock(),
+            new BxInspectMock());
     sqlEvaluator.updateEvaluatorParameters(kernelParameters());
     kernelTest = SqlKernelTestFactory.getKernel(sqlEvaluator);
     KernelManager.register(kernelTest);

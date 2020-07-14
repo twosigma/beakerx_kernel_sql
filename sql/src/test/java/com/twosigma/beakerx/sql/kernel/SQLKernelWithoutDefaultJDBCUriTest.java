@@ -20,6 +20,7 @@ import com.twosigma.beakerx.BeakerXServerMock;
 import com.twosigma.beakerx.KernelSetUpFixtureTest;
 import com.twosigma.beakerx.KernelTest;
 import com.twosigma.beakerx.RuntimetoolsMock;
+import com.twosigma.beakerx.evaluator.BxInspectMock;
 import com.twosigma.beakerx.evaluator.ClasspathScannerMock;
 import com.twosigma.beakerx.evaluator.EvaluatorTest;
 import com.twosigma.beakerx.kernel.BxKernelRunner;
@@ -64,7 +65,8 @@ public class SQLKernelWithoutDefaultJDBCUriTest extends KernelSetUpFixtureTest {
             kernelParameters,
             new EvaluatorTest.BeakexClientTestImpl(),
             magicCommandConfiguration.patterns(),
-            new ClasspathScannerMock());
+            new ClasspathScannerMock(),
+            new BxInspectMock());
     return new SQL(sessionId,
             sqlEvaluator,
             new Configuration(
