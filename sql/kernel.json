@@ -4,5 +4,6 @@
   ],
   "display_name": "SQL",
   "language": "SQL",
-  "env": { "PS1":"SQL>"}
+  "env": { "PS1":"SQL>"},
+  "interrupt_mode": "message"
 }
