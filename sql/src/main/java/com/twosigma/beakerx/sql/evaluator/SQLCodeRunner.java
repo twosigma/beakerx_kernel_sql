@@ -57,7 +57,7 @@ class SQLCodeRunner implements Callable<TryResult> {
       logger.error(e.getMessage());
       either = TryResult.createError(e.toString());
     }
-    return either;
+    return sqlEvaluator.processResult(either);
   }
 
   private String createErrorMessage(SQLException e) {
